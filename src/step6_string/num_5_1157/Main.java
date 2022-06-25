@@ -1,4 +1,4 @@
-package step6_string.num_10809;
+package step6_string.num_5_1157;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String words = sc.nextLine();
         int[] arr = new int[26];
-        Arrays.fill(arr, -1);
+        Arrays.fill(arr, 0);
         int temp;
         for(int i = 0; i < words.length(); i++) {
             temp = (int) words.charAt(i)-97;

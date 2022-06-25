@@ -1,4 +1,4 @@
-package step6_string.num_11720;
+package step6_string.num_2_11720;
 
 import java.util.Scanner;
 
