@@ -1,23 +1,18 @@
 package step6_string.num_6_1152;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        String words = sc.nextLine();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+        String words = br.readLine();
+        StringTokenizer st = new StringTokenizer(words, " ");
 
-        int[] arr = new int[26];
-        Arrays.fill(arr, 0);
-
-        int temp;
-        for(int i = 0; i < words.length(); i++) {
-            temp = (int) words.charAt(i)-97;
-            if (arr[temp] == -1)
-                arr[temp] = i;
-        }
-        for(int j = 0; j < 26; j++)
-            System.out.print(arr[j]+" ");
+        bw.write(Integer.toString(st.countTokens()));
+        bw.flush();
+        bw.close();
     }
 }
