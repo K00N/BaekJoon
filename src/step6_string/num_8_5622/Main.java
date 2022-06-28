@@ -8,18 +8,14 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String words = br.readLine();
-        int alphaNum;
-        int sum=0;
-        for(int i = 0; i < words.length(); i++){
-            alphaNum = (int)words.charAt(i)-65;
-            if(alphaNum < 15){ sum += alphaNum/3 +2;}
-            else if (alphaNum < 19) { sum += 7;}
-            else if (alphaNum < 22) { sum += 8;}
-            else { sum += 9;}
-        }
-        sum += words.length();
 
-        bw.write(Integer.toString(sum));
+        String croatia[] = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
+        for (int i = 0; i < croatia.length; i++) {
+            if (words.contains(croatia[i])) {
+                words = words.replace(croatia[i], "1");
+            }
+        }
+        bw.write(Integer.toString(words.length()));
         bw.flush();
         bw.close();
     }
