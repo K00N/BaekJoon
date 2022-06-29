@@ -8,20 +8,20 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int num = Integer.parseInt(br.readLine());
-        int fiboNum=0;
-        int fibo=0;
+        int addNum=0;
+        int value=0;
         int numerator;
         int denominator;
-        while(num > fibo){
-            fiboNum++;
-            fibo += fiboNum;
+        while(num > value){
+            addNum++;
+            value += addNum;
         }
-        if(fiboNum%2 == 0){
-            numerator = fiboNum - fibo + num;
-            denominator = 1 + fibo - num;
+        if(addNum%2 == 0){
+            numerator = addNum - value + num;
+            denominator = 1 + value - num;
         } else {
-            numerator = 1 + fibo - num;
-            denominator = fiboNum - fibo + num;
+            numerator = 1 + value - num;
+            denominator = addNum - value + num;
         }
 
         bw.write(Integer.toString(numerator));

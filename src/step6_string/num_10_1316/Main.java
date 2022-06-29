@@ -1,4 +1,4 @@
-package step6_string.num_9_1316;
+package step6_string.num_10_1316;
 
 import java.io.*;
 
