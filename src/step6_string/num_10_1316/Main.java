@@ -12,6 +12,7 @@ public class Main {
         String strSet = "";
         String[] strArr;
         int count=0;
+
         for(int i =0; i < repeat; i++){
              strSet = "";
              str =br.readLine();
