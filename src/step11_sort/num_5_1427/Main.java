@@ -26,6 +26,7 @@ public class Main {
         for(int k=0; k<intArr.length;k++){
             bw.write(Integer.toString(intArr[k]));
         }
+
         bw.flush();
         bw.close();
 

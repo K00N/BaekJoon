@@ -1,4 +1,4 @@
-package step11_sort.num_6_11650;
+package step11_sort.num_7_11651;
 
 import java.io.*;
 import java.util.Arrays;
@@ -15,8 +15,8 @@ public class Main {
         String[] strArr = new String[2];
         for(int i=0; i<testCase; i++){
             strArr = br.readLine().split(" ");
-            coordinatesArr[i][0]=Integer.parseInt(strArr[0]);
-            coordinatesArr[i][1]=Integer.parseInt(strArr[1]);
+            coordinatesArr[i][1]=Integer.parseInt(strArr[0]);
+            coordinatesArr[i][0]=Integer.parseInt(strArr[1]);
         }
 
         Arrays.sort(coordinatesArr, (e1, e2)->{
@@ -26,11 +26,9 @@ public class Main {
                 return e1[0] - e2[0];
             }
         });
-
         for(int i = 0; i < testCase; i++) {
-            System.out.println(coordinatesArr[i][0] + " " + coordinatesArr[i][1]);
+            System.out.println(coordinatesArr[i][1] + " " + coordinatesArr[i][0]);
         }
 
     }
 }
-

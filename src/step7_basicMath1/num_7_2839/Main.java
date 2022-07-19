@@ -9,6 +9,7 @@ public class Main {
 
         int weight = Integer.parseInt(br.readLine());
         int answer=-1;
+
         if(weight%5==0){
             answer=weight/5;
         }else {
