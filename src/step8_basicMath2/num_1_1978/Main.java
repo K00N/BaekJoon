@@ -1,4 +1,4 @@
-package step8_basicMath2.num2_prime_2581;
+package step8_basicMath2.num_1_1978;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -8,21 +8,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int m = Integer.parseInt(br.readLine());
-        int n = Integer.parseInt(br.readLine());
-        int primeSum=0;
-        int minimum=Integer.MAX_VALUE;
-        for(int i=m; i<=n;i++){
-            if(checkPrimeNum(i)){
-                primeSum += i;
-                if(minimum == Integer.MAX_VALUE){ minimum=i; }
+        int testCase = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int count=0;
+        for(int i=0; i<testCase; i++){
+            if(checkPrimeNum(Integer.parseInt(st.nextToken()))) {
+                count++;
             }
         }
-        if(minimum == Integer.MAX_VALUE){ minimum = -1; }
-        if(primeSum != 0) {
-            System.out.println(primeSum);
-        }
-        System.out.println(minimum);
+        bw.write(Integer.toString(count));
+        bw.flush();
+        bw.close();
     }
 
     public static boolean checkPrimeNum(int n){
