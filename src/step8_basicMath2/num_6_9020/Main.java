@@ -10,6 +10,8 @@ public class Main {
         int testCase = Integer.parseInt(br.readLine());
         int t=0;
         int lastIdx=0;
+
+        //1-10000 사이의 소수배열 저장
         int[] primeNumArr = new int[1300];
         for(int i=2; i<10000;i++){
             if(checkPrimeNum(i)){
@@ -19,10 +21,11 @@ public class Main {
         }
         int n;
         int answer_num1=0, answer_num2=0;
+
         while(t<testCase){
             n=Integer.parseInt(br.readLine());
 
-            GoldbachLoop:
+
             for (int i : primeNumArr) {
                 if( i > n/2 ){ break; }
                 for (int j : primeNumArr) {
