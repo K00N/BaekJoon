@@ -25,7 +25,6 @@ public class Main {
         while(t<testCase){
             n=Integer.parseInt(br.readLine());
 
-
             for (int i : primeNumArr) {
                 if( i > n/2 ){ break; }
                 for (int j : primeNumArr) {
