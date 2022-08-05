@@ -54,20 +54,12 @@ public class Main {
                     } else {
                         idx++;
                     }
-                } else if (num1 == 1) {
-                    if (num2 % divisor == 0) {
-                        num2 = num2 / divisor;
-                        lcm = lcm * divisor;
-                    } else {
-                        idx++;
-                    }
-                } else if (num2 == 1) {
-                    if (num1 % divisor == 0) {
-                        num1 = num1 / divisor;
-                        lcm = lcm * divisor;
-                    } else {
-                        idx++;
-                    }
+                } else if( num1 == 1){ // 어느 한쪽이 1이 되었을 때 나머지 숫자를 최소공배수에 곱한다.
+                    lcm = lcm*num2;
+                    break;
+                } else if (num2 == 1){
+                    lcm = lcm*num1;
+                    break;
                 }
             }
             sb.append(lcm).append("\n");

@@ -23,33 +23,32 @@ public class Main {
             }
             if(i%2 == 1){ i++;}
         }
+
         int divisor;
         int t=0;
         while(t<1229){
             divisor = primeNumArr[t];
             if( (num1==1) && (num2==1)) { break; }
             if( (num1 != 1) && (num2 != 1)){
+                //공통되게 나누어지는 소수는 최대공약수와 최대공배수에 각각 곱해준다.
                 if( (num1%divisor ==0) && (num2%divisor==0)){
                     num1 = num1/divisor; num2 = num2/divisor;
                     lcm = lcm*divisor;
                     gcd = gcd*divisor;
-                } else if (num1%divisor==0){
+                } else if (num1%divisor==0){ // 어느 한쪽만 나눠지는 경우 최대공배수에만 곱한다.
                     num1 = num1/divisor;
                     lcm = lcm*divisor;
                 } else if (num2%divisor ==0){
                     num2 = num2/divisor;
                     lcm = lcm*divisor;
-                } else { t++; }
-            } else if( num1 == 1){
-                if(num2%divisor==0){
-                    num2 = num2/divisor;
-                    lcm = lcm*divisor;
-                } else { t++; }
+                } else { t++; } // 해당 소수로 더이상 분해가 안되면 다음 소수로 검사한다.
+
+            } else if( num1 == 1){ // 어느 한쪽이 1이 되었을 때 나머지 숫자를 최소공배수에 곱한다.
+                lcm = lcm*num2;
+                break;
             } else if (num2 == 1){
-                if(num1%divisor ==0){
-                    num1 = num1/divisor;
-                    lcm=lcm*divisor;
-                } else { t++; }
+                lcm = lcm*num1;
+                break;
             }
         }
         bw.write(Integer.toString(gcd));

@@ -9,7 +9,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        StringTokenizer st;
 
         int testCase = Integer.parseInt(br.readLine());
         int[] testArr = new int[testCase];
@@ -23,7 +22,6 @@ public class Main {
             subArr[i] = testArr[i+1]-testArr[i];
         }
         Arrays.sort(subArr);
-
 
 
         /* GCD구하기
@@ -49,18 +47,7 @@ public class Main {
         bw.flush();
         bw.close();
     }
-    public static boolean checkPrimeNum(int n){
-        if(n==1){return false;}
-        else if(n==2){ return true; }
-        if(n%2==0){return false;}
-        int i=0;
-        while(true){
-            if((i*2+3)>(int)Math.sqrt(n)){break;}
-            if(n%((i*2)+3)==0){return false;}
-            i++;
-        }
-        return true;
-    }
+
     public static int getGCD(int num1, int num2){
         while(num2 != 0) {
             int r = num1 % num2;
