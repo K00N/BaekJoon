@@ -22,39 +22,30 @@ public class Main {
         for(int i=0; i<testArr.length-1; i++){
             subArr[i] = testArr[i+1]-testArr[i];
         }
-/*        for(int i=0; i< subArr.length; i++){
-            bw.write(Integer.toString(subArr[i]));
-        }
-        bw.newLine();
-        bw.flush();*/
-
-        int[] primeNumArr = new int[subArr[subArr.length-1]/2+1];
-        int lastIdx=0;
-        for(int i=2; i<=subArr[subArr.length-1]; i++){
-            if(checkPrimeNum(i)){
-                primeNumArr[lastIdx] = i;
-                lastIdx++;
-            }
-            if(i%2 == 1){ i++;}
-        }
-/*        for(int i=0; i< primeNumArr.length; i++){
-            bw.write(Integer.toString(primeNumArr[i]));
-        }
-        bw.newLine();
-        bw.flush();*/
+        Arrays.sort(subArr);
 
 
 
+        /* GCD구하기
+        * */
         int GCD =subArr[0];
-
         for(int k=1; k< subArr.length; k++){
-            GCD = getGCD(GCD, subArr[k], primeNumArr);
+            GCD = getGCD(GCD, subArr[k]);
         }
-        for(int a=2; a<=GCD; a++){
-            if(GCD%a ==0){
-                bw.write(Integer.toString(a)+" ");
+
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        sb2.insert(0, " ").insert(0, GCD);
+        for(int a=2; (double)a<=Math.sqrt(GCD); a++){
+            if((double)a == Math.sqrt(GCD)){
+                sb1.append(a).append(" ");
+            } else if(GCD%a ==0){
+                sb1.append(a).append(" ");
+                sb2.insert(0, " ").insert(0, GCD/a);
             }
         }
+        bw.write(sb1.toString());
+        bw.write(sb2.toString());
         bw.flush();
         bw.close();
     }
@@ -70,26 +61,12 @@ public class Main {
         }
         return true;
     }
-    public static int getGCD(int num1, int num2, int[] primeNumArr){
-        int divisor=0;
-        int t=0;
-        int gcd=1;
-        while(t<primeNumArr.length){
-            divisor = primeNumArr[t];
-            if( (num1==1) || (num2==1)) { break; }
-
-            if( (num1%divisor==0) && (num2%divisor==0)){
-                num1 = num1/divisor; num2 = num2/divisor;
-                gcd = gcd*divisor;
-            } else if( (num1%divisor)==0){
-                num1 = num1 / divisor;
-            } else if ( (num2&divisor)==0){
-                num2 = num2 / divisor;
-            } else {
-                t++;
-            }
+    public static int getGCD(int num1, int num2){
+        while(num2 != 0) {
+            int r = num1 % num2;
+            num1 = num2;
+            num2 = r;
         }
-        return gcd;
+        return num1;
     }
-
 }
