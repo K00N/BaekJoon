@@ -1,4 +1,4 @@
-package step14_numTheory.num_5_3036;
+package step14_numTheory.num_6_3036;
 
 import java.io.*;
 import java.util.StringTokenizer;
