@@ -1,8 +1,7 @@
-package step14_numTheory.num_5_2981;
+package step14_numTheory.num_05_2981;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {

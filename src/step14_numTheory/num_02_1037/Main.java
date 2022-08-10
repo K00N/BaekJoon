@@ -1,4 +1,4 @@
-package step14_numTheory.num_2_1037;
+package step14_numTheory.num_02_1037;
 
 import java.io.*;
 import java.util.Arrays;
