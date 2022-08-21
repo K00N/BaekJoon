@@ -1,4 +1,4 @@
-package step15_backTracking.num_1_15649;
+package step15_backTracking.num_2_15650;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -20,12 +20,12 @@ public class Main {
 
         arr = new int[M];
         visit = new boolean[N];
-        dfs(N, M, 0);
+        dfs(N, M, 0, 0);
         System.out.println(sb);
 
     }
 
-    public static void dfs(int N, int M, int depth) {
+    public static void dfs(int N, int M, int depth, int least) {
         if (depth == M) {
             for (int val : arr) {
                 sb.append(val).append(' ');
@@ -34,11 +34,11 @@ public class Main {
             return;
         }
 
-        for (int i = 0; i < N; i++) {
+        for (int i = least; i < N; i++) {
             if (!visit[i]) {
                 visit[i] = true;
                 arr[depth] = i + 1;
-                dfs(N, M, depth + 1);
+                dfs(N, M, depth + 1, i+1);
                 visit[i] = false;
             }
         }

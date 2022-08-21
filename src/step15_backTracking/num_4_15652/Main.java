@@ -1,4 +1,4 @@
-package step15_backTracking.num_1_15649;
+package step15_backTracking.num_4_15652;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -6,7 +6,6 @@ import java.util.StringTokenizer;
 public class Main {
 
     public static int[] arr;
-    public static boolean[] visit;
     public static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
@@ -19,13 +18,12 @@ public class Main {
         int M = Integer.parseInt(st.nextToken());
 
         arr = new int[M];
-        visit = new boolean[N];
-        dfs(N, M, 0);
+        dfs(N, M, 0, 0);
         System.out.println(sb);
 
     }
 
-    public static void dfs(int N, int M, int depth) {
+    public static void dfs(int N, int M, int depth, int least) {
         if (depth == M) {
             for (int val : arr) {
                 sb.append(val).append(' ');
@@ -34,13 +32,9 @@ public class Main {
             return;
         }
 
-        for (int i = 0; i < N; i++) {
-            if (!visit[i]) {
-                visit[i] = true;
+        for (int i = least; i < N; i++) {
                 arr[depth] = i + 1;
-                dfs(N, M, depth + 1);
-                visit[i] = false;
-            }
+                dfs(N, M, depth + 1, i);
         }
     }
 }
